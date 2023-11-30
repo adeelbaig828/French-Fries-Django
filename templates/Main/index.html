@@ -1,0 +1,280 @@
+{% extends 'base.html' %}
+{% load i18n  static %}
+{% block main %}
+
+<!-- HOME -->
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+          <div class="owl-carousel owl-theme">
+               <div class="item item-dicover">
+                    <div class="caption">
+                         <div class="container">
+                              <div class="col-md-8 col-sm-12">
+                                   <!-- <center><a href="/"><img src="{% static "images/logo.png" %}" style="width: 200px; height: 200px;" class="img_responsivr"></a></center> -->
+                                   <h3 style="color:white">{% trans 'Welcome to MY French Factory' %}</h3>
+                                   <h1>{% trans 'Discover our large choice of homemade Galettes, sweet crêpes, waffles and fresh drinks.' %}</h1>
+                                   <a href="#menu" class="section-btn btn btn-default smoothScroll"> {% trans "discover our menu" %}</a>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+
+               <div class="item item-third">
+                    <div class="caption">
+                         <div class="container">
+                              <div class="col-md-8 col-sm-12" style="margin-top:-10px">
+                                   <h3 style="color:white">{% trans 'Welcome to MY French Factory' %}</h3>
+                                   <h1>{% trans "Enjoy the real taste of Brittany in Malaysia" %}</h1>
+                                   <a href="{% url "Main:Contact Page" %}" class="section-btn btn btn-default smoothScroll">{% trans "Contact Us" %}</a>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="item item-home-second">
+                    <div class="caption">
+                         <div class="container">
+                              <div class="col-md-8 col-sm-12" style="margin-top:-10px">
+                                   <h3 style="color:white">{% trans 'Welcome to MY French Factory' %}</h3>
+                                   <h1>{% trans "Enjoy the real taste of Brittany in Malaysia" %}</h1>
+                                   <a href="{% url "Main:Contact Page" %}" class="section-btn btn btn-default smoothScroll">{% trans "Contact Us" %}</a>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+    </div>
+</section>
+
+
+<!-- ABOUT -->
+<section id="about" data-stellar-background-ratio="0.5">
+    <div class="container">
+         <div class="row">
+
+               <div class="col-md-12 col-sm-12">
+                    <div class="about-info">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                              <center>
+                                   <!-- <h3>{% trans "Our story" %}</h3> -->
+                              <h2>{% trans "A piece of France in the beautiful island of Langkawi." %}<br/><small>{% trans "Since 2014" %}</small></h2></center>
+                         </div>
+                    </div>
+               </div>
+
+              <div class="col-md-12 col-sm-12">
+                   <!-- <div class="wow fadeInUp about-image" data-wow-delay="0.6s"> -->
+                        <!-- <br/> -->
+                        <div class="iframe-container">
+                              <iframe src="https://www.youtube.com/embed/TSW8U3EIvec?autoplay=1&loop=1&modestbranding=1&controls=0&showinfo=0&playlist=TSW8U3EIvec" width="600" height="350" frameborder="0"></iframe>
+                              <!-- 1. The <iframe> (video player) will replace this <div> tag. -->
+                              <!-- <div id="player"></div> -->
+                         </div>
+                         <!-- <img src="{% static "images/about-image.jpg" %}" class="img-responsive" alt=""> -->
+                    <!-- </div> -->
+              </div>
+              <br/>
+              <hr>
+              <div class="col-sm-12">
+                   <br/>
+                   <center><h2>{% trans "Tested and recommended by Tun Dr Mahathir himself." %}</h2>
+                    <hr style="border-top: 2px solid black; width: 40%;"/>
+                   <img src="{% static "images/dr-mahtir-testimonial.jpg" %}" class="img-responsive" style="width: 100%;"></center>
+              </div>
+         </div>
+    </div>
+</section>
+<!-- MENU-->
+<section id="menu" data-stellar-background-ratio="0.5">
+    <div class="container">
+         <div class="row">
+              <div class="col-md-12 col-sm-12">
+                   <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                        <!-- <h2>Menu</h2> -->
+                        <h2>Best Sellers</h2>
+                   </div>
+              </div>
+              {% if menu_items %}
+              {% for i in menu_items %}
+                    <div class="col-md-4 col-sm-6">
+                         <div class="new-menu">
+                              <div class="menu-img" style="margin-top: auto;">
+                                   {% if i.picture %}
+                                        <a href="{{i.picture.url}}" class="image-popup" title="{{i.m_name}}">
+                                             <img src="{{i.picture.url}}" class="img-menu" alt="menu-image"></a>
+                              
+                                   {% endif %}
+                              </div>
+                              <div class='menu-desc-main'>
+                                   <div class="menu-desc" style="flex:3">
+                                        {% if isEn %}
+                                        <h4>{{i.m_name}}</h4>
+                                        <p id="desc">{{i.m_desc}}</p>
+                                        {% else %}
+                                             <h4>{{i.m_name_fr}}</h4>
+                                             <p id="desc">{{i.m_desc_fr}}</p>
+                                        {% endif %}
+                                   </div>
+                                   <div class="menu-desc-is" style="flex:1">
+                                        <h4>RM {{i.m_price}}</h4>                                             
+                                   </div>
+                              </div>
+                         </div>
+                         <!-- MENU THUMB -->
+                         <!-- <div class="menu-thumb">
+                              {% if i.picture %}
+                              <a href="{{i.picture.url}}" class="image-popup" title="{{i.m_name}}">
+                                   <img src="{{i.picture.url}}" class="img-responsive" alt="">
+                                   <div class="menu-info">
+                              {% else %}
+                              <a href="" class="image-popup" title={{i.m_name}}>
+                                   <img src="" class="img-responsive" alt="">   
+                                   <div class="menu-info-no-img">
+                              {% endif %}
+                                   <div class="menu-info">
+                                        <div class="menu-item">
+                                             <h3>{{i.m_name}}</h3>
+                                             <h3>RM {{i.m_price}}</h3>
+                                        </div>
+                                        <div class="menu-price">
+                                             <p id="desc" >{{i.m_desc}}</p>                                             
+                                        </div>
+                                   </div>
+                              </a>
+                         </div> -->
+                    </div>
+              {% endfor %}
+              {% else %}
+              <div>
+                   <center><h3>No Menu Added Yet</h3></center>
+              </div>
+               {% endif %}
+          </div>
+          <hr/>
+               <center><a href="{% url "Main:Menu Page" %}" class="btn menu-btn" style="width:200px"><b>{% trans "View all menu" %}</b></a></center>
+          <hr/>
+    </div>
+</section>
+
+
+<!-- TESTIMONIAL -->
+<section id="testimonial" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+         <div class="row">
+
+              <div class="col-md-12 col-sm-12">
+                   <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                        <h2>{% trans "Testimonials" %}</h2>
+                   </div>
+              </div>  
+
+              <div class="col-md-offset-2 col-md-8 col-sm-12">
+                   <div class="owl-carousel owl-theme">
+                        <div class="item">
+                             <p>{% trans "The food is delicious! I couldn't decide between a  sweet or savoury crêpe, so I did both!  I chose the cheese, potato, blue cheese, and caramelized onion for savoury. And, the simple butter and sugar with a sprinkle of lemon. The owner is as very friendly and delightful as the decor. A must-have when visiting Cenang!" %}</p>
+                                  <div class="tst-author">
+                                       <h4>{% trans "Naomi Dumaran" %}</h4>
+                                       <span>Google Maps</span>
+                                  </div>
+                        </div>
+
+                        <div class="item">
+                             <p>{% trans "It's a very small shop with limited sitting space, but its service and the food is very good. The crepe is very soft and the texture is very smooth. The waffle is a must try especially the dark chocolate sauce. Also the french tea which is imported, it's very unique especially the yuzu temple, very refreshing and there is after taste of yuzu. I went for a 3 days trip at langkawi with my family and visited the shop almost very day." %}
+                              </p>
+                                  <div class="tst-author">
+                                       <h4>{% trans "Thomson Sim" %}</h4>
+                                       <span>Trip Advisor</span>
+                                  </div>     
+                        </div>
+
+                        <div class="item">
+                             <p>{% trans "THE BEST CREPES EVER AND EVER AND EVER❤️" %}</p>
+                                  <div class="tst-author">
+                                       <h4>{% trans "Tatty Zainal" %}</h4>
+                                       <span>Instagram</span>
+                                  </div>
+                        </div>
+
+                   </div>
+              </div>
+
+         </div>
+    </div>
+</section>  
+
+
+<!-- CONTACT -->
+<section id="contact" data-stellar-background-ratio="0.5">
+    <div class="container">
+         <div class="row">
+              <div class="wow fadeInUp col-md-6 col-sm-12" data-wow-delay="0.4s">
+                   <div id="google-map">
+                        <iframe src="https://maps.google.com/maps?q=MY%20french%20factory%20CENANG%20PLAZA%20BEACH%20HOTEL&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+                   </div>
+              </div>    
+
+              <div class="col-md-6 col-sm-12">
+
+                   <div class="col-md-12 col-sm-12">
+                        <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                             <h2>{% trans "Contact Us" %}</h2>
+                        </div>
+                   </div>
+
+                   <!-- CONTACT FORM -->
+                   <form method="post" class="wow fadeInUp" id="contact-form" role="form" data-wow-delay="0.8s">
+
+                        <!-- token of security  -->
+                        {% csrf_token %}
+                        <!-- IF MAIL SENT SUCCESSFUL  // connect this with custom JS -->
+                        <h6 class="text-success">Your message has been sent successfully.</h6>
+                        
+                        <!-- IF MAIL NOT SENT -->
+                        <h6 class="text-danger">E-mail must be valid and message must be longer than 1 character.</h6>
+
+                        <div class="col-md-6 col-sm-6">
+                             <input type="text" class="form-control" id="cf-name" name="name" placeholder="{% trans 'Full name' %}">
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                             <input type="email" class="form-control" id="cf-email" name="email" placeholder="{% trans 'Email address' %}">
+                        </div>
+
+                        <div class="col-md-12 col-sm-12">
+                             <input type="text" class="form-control" id="cf-subject" name="subject" placeholder="{% trans 'Subject' %}">
+
+                             <textarea class="form-control" rows="6" id="cf-message" name="message" placeholder="{% trans 'Message' %}"></textarea>
+
+                             <div class="row">
+                              <div class="col-lg-6 col-md-6">
+                                  <div class="g-recaptcha" id="rcaptcha" data-sitekey="6LeAXaAdAAAAAAHYzYwruZqE97kLvnVjF16HDmvv"></div>
+                              </div>
+                             <div class="col-lg-6 col-md-6" style="text-align:center;line-height:5">
+                                  <span id="captcha" style="color:red;" />
+                             </div>
+                            </div>
+                             <button type="submit" style="margin-top:10px;" class="form-control" id="cf-submit" name="submit">{% trans "Send Message" %}</button>
+                        </div>
+                   </form>
+              </div>
+
+         </div>
+    </div>
+</section> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script>
+     $( "#contact-form" ).submit(function( event ) {
+    
+    var v = grecaptcha.getResponse();
+    if(v.length == 0)
+    {
+        $("#captcha").html("Recaptcha Required");
+        return false;
+    }
+    else{
+     $("#captcha").html("");
+    }
+});
+</script>
+{% endblock %}

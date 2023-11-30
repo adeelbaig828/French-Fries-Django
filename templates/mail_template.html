@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title></title>
+        <style></style>
+    </head>
+    <body>
+        <center><h1>My French Factory : {{res_from}}</h1></center>
+        <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+            {% if isCtn %}
+            <tr>
+                <th align="center" valign="top">Full Name</th>
+                <td align="center" valign="center">{{name}}</td>
+            <tr/>
+            <tr>
+                <th align="center" valign="center">Email Address</th>
+                <td align="center" valign="center">{{email}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Subject</th>
+                <td align="center" valign="center">{{subject}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Message</th>
+                <td align="center" valign="center">{{message}}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <th align="center" valign="top">First Name</th>
+                <td align="center" valign="center">{{fname}}</td>
+            <tr/>
+            <tr>
+                <th align="center" valign="center">Last Name</th>
+                <td align="center" valign="center">{{lname}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Age</th>
+                <td align="center" valign="center">{{age}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Family Situation</th>
+                <td align="center" valign="center">{{family_situation}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="top">Address</th>
+                <td align="center" valign="center">{{address}}</td>
+            <tr/>
+            <tr>
+                <th align="center" valign="center">Telephone</th>
+                <td align="center" valign="center">{{telephone}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Email Address</th>
+                <td align="center" valign="center">{{email}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Professional Situation</th>
+                <td align="center" valign="center">{{prof_situation}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="top">Ever Visited Malasiya</th>
+                <td align="center" valign="center">{{vistq}}</td>
+            <tr/>
+            <tr>
+                <th align="center" valign="center">If yes, in which place (s) do you plan to set up your business?</th>
+                <td align="center" valign="center">{{visit_business_plan}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Estimated Maturity</th>
+                <td align="center" valign="center">{{est_maturity}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Capital Investment</th>
+                <td align="center" valign="center">{{cap_invest}}</td>
+            </tr>
+            <tr>
+                <th align="center" valign="center">Message</th>
+                <td align="center" valign="center">{{message}}</td>
+            </tr>
+            {% endif %}
+        </table>
+        <p>My French Factory Team.</p>
+    </body>
+</html>

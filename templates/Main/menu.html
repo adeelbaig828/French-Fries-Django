@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% block main %}
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+     <div class="row">
+          <div class="owl-carousel owl-theme">
+               <div class="item item-menu">
+                    <div class="caption">
+                         <div class="container">
+                              <div class="col-md-8 col-sm-12">
+                                   <h1>{% trans "Explore our menu" %}</h1>
+                                   <h3>{% trans "Come and try our famous galettes and desserts." %}</h3>
+                                   <br/>
+                                   <a href="#menu" class="section-btn btn btn-default smoothScroll" download>{% trans "View all menu" %}</a>  
+                              </div>
+                         </div>
+                    </div>
+               </div>
+               <div class="item item-menu-sec">
+                    <div class="caption">
+                         <div class="container">
+                              <div class="col-md-8 col-sm-12">
+                                   <h1>{% trans "Explore our menu" %}</h1>
+                                   <h3>{% trans "Come and try our famous galettes and desserts." %}</h3>
+                                   <br/>
+                                   <a href="#menu" class="section-btn btn btn-default smoothScroll" download>{% trans "View all menu" %}</a>  
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div> 
+     </div>
+</section>
+<!-- MENU-->
+<section id="menu" data-stellar-background-ratio="0.5">
+    <div class="container">
+          <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+               <h1>Menu</h1>
+               <!-- <hr/> -->
+          </div>
+          <div>
+               <center>
+               <ul class="nav nav-tabs" role="tablist">
+                    {% for i in categories %}
+                    {% if forloop.counter == 1 %}
+                    <li class="active">
+                        <a href="#{{i.c_id}}" class="tab-nav" aria-controls="{{i.c_id}}" role="tab" data-toggle="tab">
+                              {% if isEn %}
+                                   <b>{{i.c_name }}</b>
+                              {% else %}
+                                   <b>{{i.c_name_fr }}</b>
+                              {% endif %}
+                        </a>
+                    </li>
+                    {% else %}
+                    <li><a href="#{{i.c_id}}" class="tab-nav" aria-controls="{{i.c_id}}" role="tab" data-toggle="tab">
+                              {% if isEn %}
+                                   <b>{{i.c_name }}</b>
+                              {% else %}
+                                   <b>{{i.c_name_fr }}</b>
+                              {% endif %}
+                        </a>
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+               </ul>
+               </center>              
+          </div>
+          <div class="tab-content">
+               {% for i in categories %}
+               {% if forloop.counter == 1 %}
+               <div class="tab-pane fade active in" id="{{i.c_id}}">
+                    {% if menu_items %}
+                    <br/>
+                         {% for menu in menu_items %}
+                              {% if menu.m_category == i %}
+                                   <div class="col-md-4 col-sm-6">
+                                        <div class="new-menu">
+                                             <div class="menu-img" style="margin-top: 10px;">
+                                                  {% if menu.picture %}
+                                                       <a href="{{menu.picture.url}}" class="image-popup" title="{{menu.m_name}}">
+                                                            <img src="{{menu.picture.url}}" class="img-menu" alt="menu-image"></a>
+                                                  {% else %}
+                                                       <!-- <a href="" class="image-popup" title={{menu.m_name}}> -->
+                                                            <!-- <div class="img-menu" >No Image</div>    -->
+                                                  {% endif %}
+                                             </div>
+                                             <div class='menu-desc-main'>
+                                                  <div class="menu-desc" style="flex:3">
+                                                       {% if isEn %}
+                                                            <h4>{{menu.m_name}}</h4>
+                                                            <p id="desc">{{menu.m_desc}}</p>
+                                                       {% else %}
+                                                            <h4>{{menu.m_name}}<h4>
+                                                            <p id="desc">{{menu.m_desc_fr}}</p>
+                                                       {% endif %}
+                                                  </div>
+                                                  <div class="menu-desc-is" style="flex:1">
+                                                       <h4>RM {{menu.m_price}}</h4>                                             
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              {% endif %}
+                         {% endfor %}
+                    {% else %}
+                    <center><h3>No Menu Added yet</h3></center>
+                    {% endif %}
+               </div>
+               {% else %}
+               <div class="tab-pane fade" id="{{i.c_id}}">
+                    {% if menu_items %}
+                    <br/>
+                         {% for menu in menu_items %}
+                              {% if menu.m_category == i %}
+                                   <div class="col-md-4 col-sm-6">
+                                        <div class="new-menu">
+                                             <div class="menu-img" style="margin-top: 10px;">
+                                                  {% if menu.picture %}
+                                                       <a href="{{menu.picture.url}}" class="image-popup" title="{{menu.m_name}}">
+                                                            <img src="{{menu.picture.url}}" class="img-menu" alt="menu-image"></a>
+                                                  {% else %}
+                                                       <!-- <a href="" class="image-popup" title={{menu.m_name}}> -->
+                                                            <!-- <div class="img-menu" >No Image</div>    -->
+                                                  {% endif %}
+                                             </div>
+                                             <div class='menu-desc-main'>
+                                                  <div class="menu-desc" style="flex:3">
+                                                       {% if isEn %}
+                                                            <h4>{{menu.m_name}}</h4>
+                                                            <p id="desc">{{menu.m_desc}}</p>
+                                                       {% else %}
+                                                            <h4>{{menu.m_name}}<h4>
+                                                            <p id="desc">{{menu.m_desc_fr}}</p>
+                                                       {% endif %}
+                                                  </div>
+                                                  <div class="menu-desc-is" style="flex:1">
+                                                       <h4>RM {{menu.m_price}}</h4>                                             
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              {% endif %}
+                         {% endfor %}
+                    {% endif %}
+               </div>
+               {% endif %}
+               {% endfor %}
+          </div>
+    </div>
+</section>
+
+<br/>
+
+
+<script>
+     $(document).ready(function(){
+          $('.menu_select').on('click',function(){
+               console.log($('this').val());
+          });
+
+          $('.tab-nav').click(function(){
+               const test = $(this).attr('href');
+               const tabpane = $(test);
+               // console.log('Val',test,'yab',tabpane);
+               if(tabpane.html() === '<br>'){
+                    tabpane.html('<center><h5>No Menu Item</h5></center>'); 
+               }
+
+          });
+     });
+</script>
+
+
+{% endblock main %}

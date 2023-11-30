@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block main %}
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+        <div class="owl-carousel owl-theme">
+            <div class="item item-event">
+                <div class="caption">
+                        <div class="container">
+                            <div class="col-md-8 col-sm-12" style="text-align: center;">
+                                <h1>{% trans "MY French Factory, catering and events service" %}</h1>
+                                <!-- <h3>Event / Événementiel</h3> -->
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</section>
+<section id="event-page">
+    <div class="container">
+        {% for event in events %}
+        <div class="card card-event">
+            <div class="card-content">
+                <p style="text-align: center;">
+                    <!-- {% trans "If you need our service for a special occasion, we can provide event catering ! Experience a private french crêpes party with our french chef and offer to your guests an original food entertainment. Please feel free to contact us, we would love to assist you." %} -->
+                    {% if isEn %}
+                    {{event.e_value}}
+                    {% else %}
+                    {{event.e_value_fr}}
+                    {% endif %}
+                </p>
+                <center><a href="{% url "Main:Contact Page" %}"><button class="btn menu-btn">{% trans "Contact Us" %}</button></a></center>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock main %}

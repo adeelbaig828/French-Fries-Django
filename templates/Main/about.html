@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% block main %}
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+          <div class="owl-carousel owl-theme">
+               <div class="item item-about">
+               <div class="caption">
+                    <div class="container">
+                         <div class="col-md-8 col-sm-12">
+                              <!-- <h3 style="font-size: 20px;">{% trans "ABOUT US." %}</h3> -->
+                              <h1>{% trans "our mission: provide an unforgettable french experience" %}</h1>
+                              <a href="#team" class="section-btn btn btn-default smoothScroll">{% trans "Meet our chefs" %}</a>
+                         </div>
+                    </div>
+               </div>
+               </div>
+          </div> 
+    </div>
+</section>
+<!-- ABOUT -->
+<section id="about" data-stellar-background-ratio="0.5">
+    <div class="container">
+         <div class="row">
+               <div class="col-md-12 col-sm-12">
+                    <div class="about-info">
+                         <div class="section-title wow fadeInUp" data-wow-delay="0.2s">
+                              <center><h3>{% trans "Our story" %}</h3>
+                              <!-- <h2>{% trans "A piece of France in beautiful island of Langkawi since 2014" %}</h2></center> -->
+                         </div>
+
+                         <div class="wow fadeInUp" data-wow-delay="0.4s" style="text-align: center;">
+                              <p>{% trans "Vincent and Soumia have moved to Malaysia in 2013, leaving everything behind them with this crazy idea: open a french authentic «crêperie» in this beautiful country. MY French Factory was born. It’s a place where the french chefs can share their passion for the traditional french crêpes : a really famous and popular dish/dessert coming from Brittany, west of France. Our friendly ambience and cosy decoration will make you feel in a « café terrasse » in Paris or in a small crêperie in the middle of the tiny streets of Saint-Malo." %}</p>
+                              <p>{% trans "We use only fresh and high quality ingredients to provide to the customers the best crêpes and waffles ever. More than a simple café, MY French Factory is a café where the tourists share their travel experience… Our food is cooked on the spot by our French chefs, just in front of you." %}</p>
+                         </div>
+                    </div>
+               </div>
+               <div class="col-sm-12 col-md-12">
+                    <center><img class="img-responsive" src="{%static 'images/PHOTO1.JPG' %}"></center>
+               </div>
+               <hr/>
+
+               <div class="col-md-12 col-sm-12">
+                    <!-- <div class="wow fadeInUp about-image" data-wow-delay="0.6s"> -->
+                         <br/>
+                         <div class="iframe-container">
+                               <iframe src="https://www.youtube.com/embed/TSW8U3EIvec?autoplay=1&modestbranding=1&controls=0&showinfo=0&loop=1&playlist=TSW8U3EIvec" width="600" height="350" frameborder="0"></iframe>
+                          </div>
+               </div>
+               
+
+              <!-- <div class="col-md-6 col-sm-12">
+                   <div class="wow fadeInUp about-image" data-wow-delay="0.6s">
+                        <img src="{% static "images/about-image.jpg" %}" class="img-responsive" alt="">
+                   </div>
+              </div> -->
+              
+         </div>
+    </div>
+</section>
+<!-- TEAM -->
+<section id="team" data-stellar-background-ratio="0.5">
+    <div class="container">
+         <div class="row">
+
+              <div class="col-md-12 col-sm-12">
+                   <div class="section-title wow fadeInUp" data-wow-delay="0.1s">
+                        <h2>{% trans "Meet our chefs" %}</h2>
+                        <p>{% trans "The first authentic french creperie in Langkawi" %}</p>
+                        
+                   </div>
+              </div>
+
+              <div class="col-md-4 col-sm-4">
+                   <div class="team-thumb wow fadeInUp" data-wow-delay="0.2s">
+                        <img src="{% static "images/team/team1.png" %}" style="height:480px" class="img-responsive" alt="team member 1">
+                             <div class="team-hover">
+                                  <div class="team-item">
+                                       <h6 style="color:white">{% trans "Soumia is the pastry chef of the team and she is famous with the tourists that walk along the Cenang strip : customers satisfaction is her main concern." %}</h6> 
+                                       <!-- <ul class="social-icon">
+                                            <li><a href="#" class="fa fa-linkedin-square"></a></li>
+                                            <li><a href="#" class="fa fa-envelope-o"></a></li>
+                                       </ul> -->
+                                  </div>
+                             </div>
+                   </div>
+                   <div class="team-info">
+                        <h3>Soumia</h3>
+                        <p>Kitchen Officer</p>
+                   </div>
+              </div>
+
+              <div class="col-md-4 col-sm-4">
+                   <div class="team-thumb wow fadeInUp" data-wow-delay="0.4s">
+                        <img src="{% static "images/team/team2.png" %}" style="height:480px" class="img-responsive" alt="">
+                             <div class="team-hover">
+                                  <div class="team-item">
+                                       <h6 style="color:white">{% trans "Vincent is our crêpes-chef expert ! He is responsible for creating new recipes and updating the food menu." %}</h6>
+                                       <!-- <ul class="social-icon">
+                                            <li><a href="#" class="fa fa-instagram"></a></li>
+                                            <li><a href="#" class="fa fa-flickr"></a></li>
+                                       </ul> -->
+                                  </div>
+                             </div>
+                   </div>
+                   <div class="team-info">
+                        <h3>Vincent</h3>
+                        <p>crêpes-chef</p>
+                   </div>
+              </div>
+
+              <!-- <div class="col-md-4 col-sm-4">
+                   <div class="team-thumb wow fadeInUp" data-wow-delay="0.6s">
+                        <img src="{% static "images/team/team3.png" %}" style="height:480px" class="img-responsive" alt="">
+                             <div class="team-hover">
+                                  <div class="team-item">
+                                       <h4>Etiam auctor enim tristique faucibus</h4>
+                                       <ul class="social-icon">
+                                            <li><a href="#" class="fa fa-github"></a></li>
+                                            <li><a href="#" class="fa fa-google"></a></li>
+                                       </ul>
+                                  </div>
+                             </div>
+                   </div>
+                   <div class="team-info">
+                        <h3>Isabella Grace</h3>
+                        <p>Pizza Specialist</p>
+                   </div>
+              </div> -->
+              
+         </div>
+    </div>
+</section>
+{% endblock main %}

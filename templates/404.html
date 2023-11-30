@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n  static %}
+{% block main %} 
+  <div class="wrap"> 
+    <div style="height:100px"></div>
+   <div class="logo"> 
+    <h1>404 Not Found</h1>
+    <br/>
+    <div class="sub"> 
+     <p><a href="{% url 'Main:Landing Page' %}">Back to Homepage</a></p> 
+    </div> 
+   </div> 
+  </div> 
+{% endblock %}

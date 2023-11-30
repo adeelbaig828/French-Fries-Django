@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+{% load i18n  static %}
+<html lang="en">
+<head>
+
+     <title>MY French Factory</title>
+<!-- 
+
+Eatery Cafe Template 
+
+http://www.templatemo.com/tm-515-eatery
+
+-->
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+     <!-- <script src = "https://code.jquery.com/jquery-1.10.2.js"></script> -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <!-- <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css
+         " rel = "stylesheet">    
+     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> -->
+     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+     <link rel="stylesheet" href="{% static  'css/erro404style.css' %}"
+
+</head>
+<body>
+
+     {% comment %} <!-- PRE LOADER -->
+     <section class="preloader">
+          <div class="spinner">
+
+               <span class="spinner-rotate"></span>
+               
+          </div>
+     </section> {% endcomment %}
+     <!-- Main MENU -->
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+     
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+     
+                    <!-- lOGO TEXT HERE -->
+                    <img src="{% static "images/logo.png" %}" class="img_responsive" style="float:left;width: 30px; height: 30px; margin:10px 5px 0px 5px;">
+                    <a href="{% url 'Main:Landing Page' %}" class="navbar-brand" style="font-size: 14px;">MY French Factory</a>
+               </div>
+     
+               <!-- MENU LINKS -->
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li class="nav-item"><a href="{% url 'Main:Landing Page' %}" class="smoothScroll nav-link">{% trans "Home" %}</a></li>
+                         <li class="nav-item"><a href="{% url 'Main:About Page' %}" class="smoothScroll nav-link">{% trans "About" %}</a></li>
+                         <!-- <li><a href="#team" class="smoothScroll">Chef</a></li> -->
+                         <li class="nav-item">
+                              <a href="{% url "Main:Menu Page" %}" class="nav-link smoothScroll">
+                               {% trans "Menu" %}
+                              </a>
+                              <!-- <ul class="dropdown-menu" >
+                                   {% for i in categories %}
+                                   <li class="nav-item"><a class="smothScroll nav-link" href="{% url "Main:Menu Page" %}">{{i.c_name}}</a></li>
+                                   {% endfor %}
+                              </ul> -->
+                         </li>
+                         <li class="class="nav-item"dropdown">
+                         <li class="nav-item"><a href="{% url "Main:Franchise Page" %}" class="smoothScroll nav-link">{% trans "Franchise" %}</a></li>
+                         <li class="nav-item"><a href="{% url "Main:Event Page" %}" class="smoothScroll nav-link">{% trans "Events" %}</a></li>
+                         <li class="nav-item"><a href="{% url "Main:Contact Page" %}" class="smoothScroll nav-link">{% trans "Contact" %}</a></li>
+                    </ul>
+     
+                    <ul class="nav navbar-nav navbar-right">
+                         <!-- here is language change code -->
+                         <!-- <li><a href="{{urlen}}" class="nav-link">English</a></li>
+                         <li><a href="{{urlfr}}" class="nav-link">French</a></li> -->
+                         {% if isEn %}
+                         <li><a href="{{transUrl}}" class="nav-link translink">FRANÇAIS</a></li>
+                         {% else %}
+                         <li><a href="{{transUrl}}" class="nav-link translink">English</a></li>
+                         {% endif %}
+                    </ul>
+               </div>
+          </div>
+     </section>
+     <!-- this is block to add template for other pages -->
+     {% block main %}
+     {% endblock %}
+     
+     <!-- FOOTER -->
+     <footer id="footer" data-stellar-background-ratio="0.5" style="background-color: #000000cb;">
+          <div class="container">
+               <div class="row">
+                    <div class="col-md-3 col-sm-8">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s" style="color:white"> {% trans "Find us" %}</h2>
+                              </div>
+                              <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p style="color:white"><i class="fa fa-map-marker fa-2x" style="color: #22ff00;"></i> {% trans "Located on the ground floor of the" %}<br/> 
+                                        {{contact.address}}
+                                   </p>
+                              </address>
+                         </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-8">
+                         <div class="footer-info">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s" style="color:white">{% trans "Contact Information" %}</h2>
+                              </div>
+                              <address class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <p style="color:white"><i class="fa fa-phone fa-2x" style="color:#0362fc"></i>  {{contact.phone_number}}</p>
+                                   <p style="color:white"><a style="color:white" href="mailto:contact@myfrenchfactorylangkawi.com"><i class="fa fa-envelope fa-2x" style="color: #c23636;"></i> {{contact.email_address}}</a></p>
+                                   <!-- <p>LINE: myfrenchfactory247 </p> -->
+                              </address>
+                         </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-8">
+                         <div class="footer-info footer-open-hour">
+                              <div class="section-title">
+                                   <h2 class="wow fadeInUp" data-wow-delay="0.2s">{% trans "Business Hours" %}</h2>
+                              </div>
+                              <div class="wow fadeInUp" data-wow-delay="0.4s">
+                                   <div id="opening-hours">
+                                       <!-- Data from the API will be displayed here -->
+                                   </div>
+                               </div>
+                               
+                               <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                               <script>
+                                   $(document).ready(function () {
+                                       $.ajax({
+                                           type: 'GET',
+                                           url: '/api/opening-hours/',  // Replace with the actual URL of your API
+                                           success: function (data) {
+                                               // Process the data and display it in the HTML element with id 'opening-hours'
+                                               data.forEach(function (item) {
+                                                   var openingHoursDiv = document.getElementById('opening-hours');
+                                                   var openingHoursText = document.createElement('div');
+                               
+                                                   // Create and set the content
+                                                   var daysOfWeek = item.day_of_week;
+                                                   var openingTime = item.opening_time;
+                                                   var closingTime = item.closing_time;
+                                                   var day_via_time=item.exceptional_Day;
+                                                   var openingTimeVaDay = item.opening_time_exceptional_Day;
+                                                   var closingTimeVaDay = item.closing_time_exceptional_Day;
+                                                   var closeDay = item.close_day;
+                               
+                                                   openingHoursText.innerHTML = `
+                                                       <strong>${daysOfWeek}</strong>
+                                                       <p>${openingTime} - ${closingTime}</p>
+                                                       <strong>${day_via_time}</strong>
+                                                       <p>${openingTimeVaDay} - ${closingTimeVaDay}</p>
+                                                       <h5 style="color: white;">${closeDay}</h5>
+                                                   `;
+                               
+                                                   // Append to the opening hours div
+                                                   openingHoursDiv.appendChild(openingHoursText);
+                                               });
+                                           },
+                                           error: function () {
+                                               // Handle any errors here
+                                           }
+                                       });
+                                   });
+                               </script>
+                               
+                         </div>
+                    </div>
+
+                    <div class="col-md-2 col-sm-4">
+                         <ul class="wow fadeInUp social-icon" data-wow-delay="0.4s">
+                              <li><a href="https://www.facebook.com/MYfrenchfactorylangkawi/" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                              <li><a href="https://fr.foursquare.com/v/my-french-factory/546b416d498eb8f5e1a02153" class="fa fa-foursquare" attr="foursquare icon"></a></li>
+                              <li><a href="https://www.tripadvisor.fr/Restaurant_Review-g298283-d7660096-Reviews-MY_French_Factory-Langkawi_Langkawi_District_Kedah.html" class="fa fa-tripadvisor"></a></li>
+                              <li><a href="https://www.instagram.com/explore/locations/471057427/my-french-factory-langkawi/" class="fa fa-instagram"></a></li>
+                              <li><a href="https://www.google.fr/maps/place/MY+French+Factory/@6.2882297,99.7061552,14z/data=!4m5!3m4!1s0x304b87deb17e2cc3:0xe53cf22b96df4edf!8m2!3d6.2902378!4d99.7279429" class="fa fa-google"></a></li>
+                         </ul>
+
+                         <div class="wow fadeInUp copyright-text" data-wow-delay="0.8s"> 
+                              <p style="color:white"><br>&copy; 2020 Developed by</p><a href="http://www.falconconsulting.fr" style="color: white;">Falcon Consulting</a>
+                              
+                              <!-- <br><br>Design: <a rel="nofollow" href="http://templatemo.com" target="_parent">TemplateMo</a></p> -->
+                         </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+
+
+     <!-- SCRIPTS -->
+     <script src="{% static 'js/jquery.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+     <script src="{% static 'js/wow.min.js' %}"></script>
+     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+     <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+     <script src="{% static 'js/smoothscroll.js' %}"></script>
+     <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+</html>

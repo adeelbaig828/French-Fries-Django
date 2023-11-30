@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+{% block main %}
+<section id="home" class="slider" data-stellar-background-ratio="0.5">
+    <div class="row">
+         <div class="owl-carousel owl-theme">
+              <div class="item item-first">
+                   <div class="caption">
+                        <div class="container">
+                             <div class="col-md-8 col-sm-12">
+                                  <h1 style="margin-bottom:250px">{% trans "Franchise" %}</h1>
+                                  <!-- <h3>Our mission is to provide an unforgettable experience</h3>
+                                  <br/>
+                                  <a href="#menu" class="section-btn btn btn-default smoothScroll">View Menu</a> -->
+                             </div>
+                        </div>
+                   </div>
+              </div>
+                <div class="item item-first-sec">
+                   <div class="caption">
+                        <div class="container">
+                             <div class="col-md-8 col-sm-12">
+                                  <h1 style="margin-bottom:250px">{% trans "Franchise" %}</h1>
+                                  <!-- <h3>Our mission is to provide an unforgettable experience</h3>
+                                  <br/>
+                                  <a href="#menu" class="section-btn btn btn-default smoothScroll">View Menu</a> -->
+                             </div>
+                        </div>
+                   </div>
+              </div>
+         </div> 
+    </div>
+</section>
+<section id="contact">
+    <div class="container">
+        <!-- <div>
+            <p style="text-align: center;">{% trans "Looking for a new food concept and you want to invest on it? MY French Factory is a proven retail store concept, with a menu suitable for every customer in the world, and a strong brand established in an international foodie place: Langkawi island. Please don’t hesitate to contact us for any further details" %}</p>
+            <center><a href="{% url "Main:Contact Page" %}"><button class="btn menu-btn">{% trans "Contact Us" %}</button></a></center>
+        </div> -->
+        <!-- <br/>
+        <br/> -->
+        <div>
+            <p style="text-align: center;">{% trans "Do you want to settle in Malaysia and have a taste for adventure and gastronomy? Whether it's your job or a simple passion, you can join the MY French Factory family. So we want to know more about you:" %}</p>
+        </div >
+        <div class="col-sm-12">
+            <form method="post" class="wow fadeInUp" id="contact-form" role="form" data-wow-delay="0.8s">
+                <!-- token of security  -->
+                {% csrf_token %}
+                <div class="col-md-4 col-sm-6">
+                     <input type="text" class="form-control" id="cf-fname" name="fname" placeholder="{% trans 'First name' %}" required>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                     <input type="text" class="form-control" id="cf-lname" name="lname" placeholder="{% trans 'Last Name' %}" required>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <input type="number" class="form-control" id="cf-age" name="age" min="18" max="120" maxlength="3" placeholder="{% trans 'Age' %}" required>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <input type="text" class="form-control" id="cf-family-situation" name="family_situation" required placeholder="{% trans 'Family situation' %}">
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <input type="text" class="form-control" id="cf-address" name="address" placeholder="{% trans 'Address' %}" required>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <input type="number" class="form-control" id="cf-telephone" name="telephone" maxlength="12" placeholder="{% trans 'Phone Number' %}" required>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <input type="email" class="form-control" id="cf-email" name="email" placeholder="{% trans 'Email address' %}" required>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <input type="text" class="form-control" id="cf-prof-situation" name="prof_situation" required placeholder="{% trans 'Current professional situation' %}">
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <input type="text" class="form-control" id="cf-vistq" name="vistq" required placeholder="{% trans 'Have you ever visited Malaysia?' %}">
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <textarea type="text" class="form-control" id="cf-visit-business-plan" name="visit_business_plan" rows="2" placeholder="{% trans 'If yes, in which place (s) do you plan to set up your business?' %}"></textarea>
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <input type="text" class="form-control" id="cf-est-maturity" name="est_maturity" required placeholder="{% trans 'Estimated maturity' %}">
+               </div>
+               <div class="col-md-4 col-sm-6">
+                    <input type="text" class="form-control" id="cf-cap-invest" name="cap_invest" required placeholder="{% trans 'Capital Investment' %}">
+               </div>
+                <div class="col-md-12 col-sm-12">
+                     <textarea class="form-control" rows="6" id="cf-message" name="message" placeholder="{% trans 'Message' %}" required></textarea>
+                     <button type="submit" class="form-control" id="cf-submit" name="submit">{% trans "Send" %}</button>
+                </div>
+           </form>
+        </div>
+    </div>
+</section>
+{% endblock main %}
